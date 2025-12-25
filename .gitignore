@@ -1,0 +1,38 @@
+# deno
+.deno/
+
+# data directory (runtime storage)
+/data/
+!/data/config.json
+
+# ide
+/.idea/
+/.vs/
+/.vscode/
+
+# macos
+.DS_Store
+
+# coverage
+/coverage/
+
+# test artifacts
+junit.xml
+
+# jupyter
+.ipynb_checkpoints/
+Untitled*.ipynb
+
+# claude code local settings
+**/.claude/settings.local.json
+
+# old data
+/www
+
+# textural logo
+/static/textural.png
+
+# claude settings
+.claude
+
+anarki

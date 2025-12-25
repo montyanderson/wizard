@@ -1,0 +1,27 @@
+name: test
+
+on:
+    push:
+    pull_request:
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: checkout
+              uses: actions/checkout@v4
+
+            - name: setup deno
+              uses: denoland/setup-deno@v2
+              with:
+                  deno-version: v2.x
+
+            - name: verify formatting
+              run: deno fmt --check
+
+            - name: type check
+              run: deno check src/**/*.ts
+
+            - name: run tests
+              run: deno task test

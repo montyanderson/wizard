@@ -1,0 +1,237 @@
+/* arc news clone styles */
+/* based on hacker news css */
+
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	color: #828282;
+}
+
+td {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	color: #828282;
+}
+
+.subtext td {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 7pt;
+	color: #828282;
+}
+
+input {
+	font-family: monospace;
+	font-size: 10pt;
+}
+
+input[type="submit"] {
+	font-family: Verdana, Geneva, sans-serif;
+}
+
+textarea {
+	font-family: monospace;
+	font-size: 10pt;
+	resize: both;
+}
+
+a:link {
+	color: #000000;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #828282;
+	text-decoration: none;
+}
+
+.title {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	color: #828282;
+	overflow: hidden;
+}
+
+.subtext {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 7pt;
+	color: #828282;
+}
+
+.pagetop {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 10pt;
+	color: #222222;
+	line-height: 12px;
+}
+
+.comhead {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 8pt;
+	color: #828282;
+}
+
+.comment {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 9pt;
+	max-width: 1215px;
+	overflow-wrap: anywhere;
+}
+
+.pagetop a:visited {
+	color: #000000;
+}
+
+.topsel a:link,
+.topsel a:visited {
+	color: #ffffff;
+}
+
+.dead a:link,
+.dead a:visited {
+	color: #dddddd;
+}
+
+.subtext a:link,
+.subtext a:visited {
+	color: #828282;
+}
+
+.subtext a:hover {
+	text-decoration: underline;
+}
+
+.comhead a:link,
+.comhead a:visited {
+	color: #828282;
+}
+
+.comhead a:hover {
+	text-decoration: underline;
+}
+
+pre {
+	overflow: auto;
+	padding: 2px;
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+}
+
+pre:hover {
+	overflow: auto;
+}
+
+.title a {
+	word-break: break-word;
+}
+
+.comment a:link,
+.comment a:visited {
+	text-decoration: underline;
+}
+
+/* main table - desktop default */
+#hnmain {
+	min-width: 796px;
+}
+
+/* mobile styles */
+/* matches hacker news responsive behaviour */
+@media only screen and (min-width: 300px) and (max-width: 750px) {
+	html,
+	body {
+		margin: 0;
+		padding: 0;
+	}
+
+	#hnmain {
+		width: 100% !important;
+		min-width: 0;
+	}
+
+	.title {
+		font-size: 11pt;
+		line-height: 14pt;
+	}
+
+	.subtext {
+		font-size: 9pt;
+	}
+
+	input[type="text"],
+	input[type="number"],
+	textarea {
+		font-size: 16px;
+		width: 90%;
+	}
+}
+
+/* comment width constraints for various screen sizes */
+@media only screen and (min-width: 300px) and (max-width: 389px) {
+	.comment {
+		max-width: 270px;
+		overflow: hidden;
+	}
+}
+
+@media only screen and (min-width: 390px) and (max-width: 509px) {
+	.comment {
+		max-width: 350px;
+		overflow: hidden;
+	}
+}
+
+@media only screen and (min-width: 510px) and (max-width: 599px) {
+	.comment {
+		max-width: 460px;
+		overflow: hidden;
+	}
+}
+
+@media only screen and (min-width: 600px) and (max-width: 689px) {
+	.comment {
+		max-width: 540px;
+		overflow: hidden;
+	}
+}
+
+@media only screen and (min-width: 690px) and (max-width: 809px) {
+	.comment {
+		max-width: 620px;
+		overflow: hidden;
+	}
+}
+
+@media only screen and (min-width: 810px) and (max-width: 899px) {
+	.comment {
+		max-width: 730px;
+		overflow: hidden;
+	}
+}
+
+@media only screen and (min-width: 900px) and (max-width: 1079px) {
+	.comment {
+		max-width: 810px;
+		overflow: hidden;
+	}
+}
+
+@media only screen and (min-width: 1080px) and (max-width: 1169px) {
+	.comment {
+		max-width: 970px;
+		overflow: hidden;
+	}
+}
+
+@media only screen and (min-width: 1170px) and (max-width: 1259px) {
+	.comment {
+		max-width: 1050px;
+		overflow: hidden;
+	}
+}
+
+@media only screen and (min-width: 1260px) and (max-width: 1349px) {
+	.comment {
+		max-width: 1130px;
+		overflow: hidden;
+	}
+}
