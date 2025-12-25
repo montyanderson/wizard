@@ -92,6 +92,27 @@ import {
 import { canVoteOnItem, COMMENT_THRESHOLD, REPLY_DECAY } from "./lib/voting.ts";
 
 // =============================================================================
+// Data Directories
+// =============================================================================
+
+/**
+ * arc: (= newsdir*  "arc/news/"
+ *         storydir* "arc/news/story/"
+ *         profdir*  "arc/news/profile/"
+ *         votedir*  "arc/news/vote/")
+ */
+// data directories (configurable via environment variables for testing)
+const baseDir = Deno.env.get("NEWS_DATA_DIR") ?? "data/news/";
+const newsDir = baseDir.endsWith("/") ? baseDir : baseDir + "/";
+const storyDir = `${newsDir}story/`;
+const profDir = `${newsDir}profile/`;
+const voteDir = `${newsDir}vote/`;
+
+// config is in the parent directory of the news data directory
+const dataDir = newsDir.replace(/[^/]+\/?$/, "");
+const configPath = `${dataDir}config.json`;
+
+// =============================================================================
 // Configuration
 // =============================================================================
 
@@ -106,7 +127,7 @@ import { canVoteOnItem, COMMENT_THRESHOLD, REPLY_DECAY } from "./lib/voting.ts";
  *         prefer-url*   t)
  */
 const config: SiteConfig = (await loadJson(
-	"data/config.json",
+	configPath,
 	SiteConfigSchema,
 )) ?? SiteConfigSchema.parse({});
 
@@ -144,23 +165,6 @@ const formatdoc = `Blank lines separate paragraphs.
 <p> Text after a blank line that is indented by two or more spaces is reproduced verbatim.  (This is intended for code.)
 <p> Text surrounded by asterisks is italicized, if the character after the first asterisk isn't whitespace.
 <p> Urls become links, except in the text field of a submission.<br><br>`;
-
-// =============================================================================
-// Data Directories
-// =============================================================================
-
-/**
- * arc: (= newsdir*  "arc/news/"
- *         storydir* "arc/news/story/"
- *         profdir*  "arc/news/profile/"
- *         votedir*  "arc/news/vote/")
- */
-// data directories (configurable via environment variables for testing)
-const baseDir = Deno.env.get("NEWS_DATA_DIR") ?? "data/news/";
-const newsDir = baseDir.endsWith("/") ? baseDir : baseDir + "/";
-const storyDir = `${newsDir}story/`;
-const profDir = `${newsDir}profile/`;
-const voteDir = `${newsDir}vote/`;
 
 // =============================================================================
 // State
